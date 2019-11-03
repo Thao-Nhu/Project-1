@@ -37,16 +37,16 @@ h1{
 }
 
 .square {
-  width:7em;
-  height:7em;
+  width:5em;
+  height:5em;
   margin:0;
   border:1px #A9A9A9 solid;
  }
 
  @media (min-width:900px) {
   .square {
-    width:11.9em;
-    height:11.9em;
+    width:9em;
+    height:9em;
   }
  }
 
@@ -88,6 +88,10 @@ body button {
   font-family:Optima, sans-serif;
 }
 
+/*#start-button{
+  display:none;
+}*/
+
 @media (min-width:900px) {
   body button {
     font-size:2em;
@@ -97,6 +101,11 @@ body button {
 .bigsquare{
   margin-top:15px;
   margin-bottom:15px;
+  text-align:center;
+}
+
+.bigsquare > img {
+  max-width:100%;
 }
 
 .pink{

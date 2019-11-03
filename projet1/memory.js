@@ -5,9 +5,9 @@ class MemoryGame {
     this.index=0;
   }
 
-  chooseRandomIndex () {
-    while (this.randomIndexTable.length<3){      
-      this.index=Math.floor(Math.random()*9);
+  chooseRandomIndex (nbPositionstoGuess,allSquares) {
+    while (this.randomIndexTable.length<nbPositionstoGuess){      
+      this.index=Math.floor(Math.random()*allSquares.length);
       if (this.randomIndexTable.indexOf(this.index) < 0) {     
         this.randomIndexTable.push(this.index);
       }

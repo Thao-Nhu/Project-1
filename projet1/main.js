@@ -5,19 +5,30 @@ document.getElementById("new-game-button").addEventListener("click", function(ev
   <div class="square grey" square-id="0"></div>
   <div class="square grey" square-id="1"></div>
   <div class="square grey" square-id="2"></div>
+  <div class="square grey" square-id="3"></div>
   </div>
 
   <div class="row">
-  <div class="square grey" square-id="3"></div>
   <div class="square grey" square-id="4"></div>
   <div class="square grey" square-id="5"></div>
+  <div class="square grey" square-id="6"></div>
+  <div class="square grey" square-id="7"></div>
   </div>
 
   <div class="row">
-  <div class="square grey" square-id="6"></div>
-  <div class="square grey" square-id="7"></div>
   <div class="square grey" square-id="8"></div>
-  </div>`;
+  <div class="square grey" square-id="9"></div>
+  <div class="square grey" square-id="10"></div>
+  <div class="square grey" square-id="11"></div>
+  </div>
+
+  <div class="row">
+  <div class="square grey" square-id="12"></div>
+  <div class="square grey" square-id="13"></div>
+  <div class="square grey" square-id="14"></div>
+  <div class="square grey" square-id="15"></div>
+  </div>
+  `;
 
   //reset message at each game start
   document.querySelector(".message").innerHTML=`
@@ -37,13 +48,14 @@ document.getElementById("new-game-button").addEventListener("click", function(ev
   document.getElementById("new-game-button").style.display="none";
 
   var allSquares=document.querySelectorAll(".square");
+  var nbPositionstoGuess=allSquares.length/2;
   var memoryGame = new MemoryGame();
   
   function startGame(){
       // reset table of random Index
       memoryGame.randomIndexTable=[];
       // before choosing new random Index
-      memoryGame.chooseRandomIndex();
+      memoryGame.chooseRandomIndex(nbPositionstoGuess,allSquares);
       
       // reset format of squares randomly selected
       memoryGame.randomSquares.forEach(square => {
@@ -89,10 +101,10 @@ document.getElementById("new-game-button").addEventListener("click", function(ev
         if (memoryGame.randomIndexTable.indexOf(squareId) != -1) {
         square.classList.remove("grey");
         square.classList.add("pink");
-          if ((squareIdTable.indexOf(squareId)<0) && (squareIdTable.length<3)) {
+          if ((squareIdTable.indexOf(squareId)<0) && (squareIdTable.length<nbPositionstoGuess)) {
           squareIdTable.push(squareId);
           }
-          if (squareIdTable.length===3){
+          if (squareIdTable.length===nbPositionstoGuess){
           document.querySelector(".message").innerHTML="YOU WIN !";
           document.querySelector(".bigsquare").innerHTML=`<div class="congrats"> <img src="congrats.gif"> </div>`;
           //The button new game appears again as an option
@@ -100,6 +112,9 @@ document.getElementById("new-game-button").addEventListener("click", function(ev
           }
         } else {
         document.querySelector(".message").innerHTML="You got it wrong ! Do a new game";
+        document.querySelector(".bigsquare").innerHTML=`
+        <img src="https://media.giphy.com/media/hPPx8yk3Bmqys/giphy.gif">
+        `
         memoryGame.renderSquares(allSquares);
         //The button new game appears again as an option
         document.getElementById("new-game-button").style.display="";
