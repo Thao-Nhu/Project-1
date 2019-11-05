@@ -20,11 +20,4 @@ class MemoryGame {
     return this.randomSquares;
   }
 
-  renderSquares(allSquares) {
-    allSquares.forEach(square => {
-      square.classList.add("grey");
-      square.classList.remove("pink");
-    })
-  }
-
 }
