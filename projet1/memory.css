@@ -3,22 +3,51 @@ body {
   background-size:cover;
 }
 
+.playground{
+  display:flex;
+  justify-content: center;
+  align-content:flex-end;
+}
+
+.memorySideNote{
+  margin-right:100px;
+  display:none;
+}
+
+.memorySideNote > img{
+  width:500px;
+}
+
+@media (min-width:900px) {
+  .memorySideNote {
+  display:block;
+  }
+}
+
 .message {
   display:flex;
   justify-content: center;
 }
+
+@media (min-width:900px) {
+  .message {
+  margin-top:15px;
+  margin-bottom:15px;
+  }
+}
+
 .message > ul {
   display:inline-block;
   padding-left:20px;
   margin-top:10px;
   margin-bottom:10px;
-  font-family:Optima, sans-serif;
-  font-size:0.9em;
+  font-family:"brush script mt";
+  font-size:1.3em;
 }
 
 @media (min-width:900px) {
   .message > ul {
-  font-size:1.4em;
+  font-size:1.55em;
   }
 }
 
@@ -37,16 +66,16 @@ h1{
 }
 
 .square {
-  width:5em;
-  height:5em;
+  width:3.3em;
+  height:3.3em;
   margin:0;
   border:1px #A9A9A9 solid;
  }
 
  @media (min-width:900px) {
   .square {
-    width:9em;
-    height:9em;
+    width:6em;
+    height:6em;
   }
  }
 
